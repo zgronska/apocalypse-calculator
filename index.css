@@ -6,7 +6,7 @@
   /* Colours */
   --light: #f7f9f9;
   --light-accent: #898a8d;
-  --dark: #281c10;
+  --dark: rgb(40, 28, 16);
   --dark-accent: #a77884;
   --highlight: #af533a;
 }
@@ -29,9 +29,12 @@ body {
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+}
+
+p {
+  line-height: 1.5;
 }
 
 img,
@@ -95,9 +98,12 @@ h6 {
 
 .page-header,
 .page-container {
-  background: var(--dark);
   padding: 1em 2em;
   text-align: center;
   margin: 2em auto;
   max-width: 40em;
+  background: rgba(40, 28, 16, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }

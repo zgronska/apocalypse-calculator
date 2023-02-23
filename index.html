@@ -23,6 +23,61 @@
 Survival skills: checkboxes or radio buttons to select the user's skills in areas such as first aid, navigation, and hunting.
 Supplies: text fields to enter the amount of food, water, and other essential supplies the user has on hand.
 Location: a dropdown or text field to select or enter the user's location, which could affect their chance of survival based on factors such as population density and access to resources. -->
+
+        <label for="weapons-guns">Firearms proficiency:</label>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="50"
+          id="weapons-guns"
+          class="form-el" />
+
+        <label for="weapons-melee">Melee weapons proficiency:</label>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="50"
+          id="weapons-melee"
+          class="form-el" />
+
+        <p>Known skills:</p>
+        <input
+          class="form-el"
+          type="checkbox"
+          id="first-aid"
+          name="skills"
+          value="10" />
+        <label for="first-aid"> First aid</label><br />
+        <input
+          class="form-el"
+          type="checkbox"
+          id="navigation"
+          name="skills"
+          value="10" />
+        <label for="navigation"> Navigation</label><br />
+        <input
+          class="form-el"
+          type="checkbox"
+          id="hunting"
+          name="skills"
+          value="10" />
+        <label for="hunting"> Hunting</label><br />
+        <input
+          class="form-el"
+          type="checkbox"
+          id="crafting"
+          name="skills"
+          value="10" />
+        <label for="crafting"> Crafting</label><br />
+        <input
+          class="form-el"
+          type="checkbox"
+          id="cooking"
+          name="skills"
+          value="10" />
+        <label for="cooking"> Cooking and food preservation</label><br />
       </div>
       <div class="result">
         <h2 class="result-title">Your survival chances</h2>
