@@ -19,69 +19,157 @@
     </header>
     <div class="page-container">
       <div class="page-calculator">
-        <!-- Weapons proficiency: a dropdown or slider to select the user's proficiency with different types of weapons, such as firearms, melee weapons, and improvised weapons.
-Survival skills: checkboxes or radio buttons to select the user's skills in areas such as first aid, navigation, and hunting.
-Supplies: text fields to enter the amount of food, water, and other essential supplies the user has on hand.
-Location: a dropdown or text field to select or enter the user's location, which could affect their chance of survival based on factors such as population density and access to resources. -->
+        <form id="form" action="" method="POST">
+          <label for="weapons-guns">🔫 Firearms proficiency:</label>
+          <input
+            type="range"
+            id="weapons-guns"
+            name="weapons-guns"
+            class="form-el" />
 
-        <label for="weapons-guns">Firearms proficiency:</label>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          id="weapons-guns"
-          class="form-el" />
+          <label for="weapons-melee">🔪 Melee weapons proficiency:</label>
+          <input
+            type="range"
+            id="weapons-melee"
+            name="weapons-melee"
+            class="form-el" />
 
-        <label for="weapons-melee">Melee weapons proficiency:</label>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          id="weapons-melee"
-          class="form-el" />
+          <p class="checkbox-label">⚒️ Known skills:</p>
+          <div class="checkboxes">
+            <label class="check" for="first-aid">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="first-aid"
+                name="first-aid"
+                value="30" />
+              First aid</label
+            >
 
-        <p>Known skills:</p>
-        <input
-          class="form-el"
-          type="checkbox"
-          id="first-aid"
-          name="skills"
-          value="10" />
-        <label for="first-aid"> First aid</label><br />
-        <input
-          class="form-el"
-          type="checkbox"
-          id="navigation"
-          name="skills"
-          value="10" />
-        <label for="navigation"> Navigation</label><br />
-        <input
-          class="form-el"
-          type="checkbox"
-          id="hunting"
-          name="skills"
-          value="10" />
-        <label for="hunting"> Hunting</label><br />
-        <input
-          class="form-el"
-          type="checkbox"
-          id="crafting"
-          name="skills"
-          value="10" />
-        <label for="crafting"> Crafting</label><br />
-        <input
-          class="form-el"
-          type="checkbox"
-          id="cooking"
-          name="skills"
-          value="10" />
-        <label for="cooking"> Cooking and food preservation</label><br />
+            <label class="check" for="navigation">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="navigation"
+                name="navigation"
+                value="10" />
+              Navigation</label
+            >
+
+            <label class="check" for="hunting">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="hunting"
+                name="hunting"
+                value="20" />
+              Hunting</label
+            >
+
+            <label class="check" for="crafting">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="crafting"
+                name="crafting"
+                value="30" />
+              Crafting</label
+            >
+
+            <label class="check" for="cooking">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="cooking"
+                name="cooking"
+                value="10" />
+              Cooking and food preservation</label
+            >
+          </div>
+
+          <label for="location">🏠 Location:</label>
+          <select class="form-el" name="location" id="location">
+            <option value="100">Rural</option>
+            <option value="66">Suburbs</option>
+            <option value="33">Small city</option>
+            <option value="0">Large city</option>
+          </select>
+
+          <p class="checkbox-label">💪 Advantages:</p>
+          <div class="checkboxes">
+            <label class="check" for="car">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="car"
+                name="car"
+                value="10" />
+              Have a car</label
+            >
+
+            <label class="check" for="boat">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="boat"
+                name="boat"
+                value="20" />
+              Have a boat</label
+            >
+
+            <label class="check" for="bunker">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="bunker"
+                name="bunker"
+                value="50" />
+              Access to a bunker</label
+            >
+
+            <label class="check" for="doctor">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="doctor"
+                name="doctor"
+                value="30" />
+              Be a doctor</label
+            >
+
+            <label class="check" for="vet">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="vet"
+                name="vet"
+                value="10" />
+              Be a vet</label
+            >
+
+            <label class="check" for="military">
+              <input
+                class="form-el"
+                type="checkbox"
+                id="military"
+                name="military"
+                value="30" />
+              Have military training</label
+            >
+          </div>
+
+          <div class="btn-container">
+            <button class="btn" id="btn-calculate" type="submit">
+              Calculate
+            </button>
+            <button class="btn" id="btn-clear">Clear</button>
+          </div>
+        </form>
       </div>
+
       <div class="result">
         <h2 class="result-title">Your survival chances</h2>
-        <div class="result-details">results</div>
+        <div class="result-details"><output id="output"></output></div>
       </div>
     </div>
 
