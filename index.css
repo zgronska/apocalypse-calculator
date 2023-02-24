@@ -2,11 +2,10 @@
 
 :root {
   /* Colours */
-  --light: #f7f9f9;
-  --light-accent: #898a8d;
-  --dark: rgb(40, 28, 16);
-  --dark-accent: #a77884;
-  --highlight: #af533a;
+  --light: #f2f2f2;
+  --dark: #333333;
+  --accent: #7fbf7f;
+  --highlight: #a7673b;
 }
 
 /* CSS Reset by Josh Comeau */
@@ -79,7 +78,7 @@ h4,
 h5,
 h6 {
   font-family: 'Karla', sans-serif;
-  color: var(--highlight);
+  color: var(--accent);
   line-height: 1;
   margin-bottom: 0.8em
 }
@@ -90,7 +89,7 @@ h6 {
   text-align: center;
   margin: 0 auto;
   max-width: 40em;
-  background: rgba(40, 28, 16, 0.8);
+  background: rgba(27, 27, 27, 0.8);
   border-radius: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -110,10 +109,43 @@ p,
 
 /*----------  Form  ----------*/
 
+/* Buttons */
+/* Default state */
 .btn {
-  padding: 0.625em;
+  background-color: var(--highlight);
+  color: var(--light);
+  padding: 0.75em 1.5em;
+  border: none;
   border-radius: 0.3em;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-inline: 0.5em;
+}
+
+/* Hover state */
+.btn:hover {
+  background-color: var(--accent);
+  color: var(--dark);
+  transition: background-color 0.2s ease;
+}
+
+/* Active state */
+.btn:active {
+  background-color: var(--dark);
+  color: var(--light);
+  transition: background-color 0.2s ease;
+}
+
+/* Focus state */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.1em var(--accent);
+}
+
+/* Disabled state */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .btn-container {
@@ -156,7 +188,7 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 1.25em;
   height: 1.25em;
-  background: var(--dark-accent);
+  background: var(--accent);
   position: relative;
   z-index: 3;
   box-shadow: 0 0 0.3em 0 rgba(0, 0, 0, 0.3);
@@ -166,19 +198,17 @@ input[type="range"]::-webkit-slider-thumb {
 .check {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  column-gap: 1.5em;
+  gap: 0.5em;
 }
 
-.check {
-  flex-wrap: nowrap;
-  column-gap: 0.5em;
+.check:not(:last-of-type) {
+  margin-right: 1em;
 }
 
 input[type="checkbox"] {
   appearance: none;
-  color: var(--dark-accent);
   width: 1.15em;
   height: 1.15em;
   border: 0.15em solid var(--highlight);
@@ -196,7 +226,7 @@ input[type="checkbox"]::before {
   transform: scale(0);
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--dark-accent);
+  box-shadow: inset 1em 1em var(--accent);
 }
 
 input[type="checkbox"]:checked::before {
@@ -231,11 +261,11 @@ input[type="checkbox"]:checked::before {
 .circular-chart text.percentage {
   font-size: 0.5em;
   text-anchor: middle;
-  fill: var(--light);
+  fill: var(--accent);
 }
 
 .circle {
-  stroke: var(--light-accent);
+  stroke: var(--highlight);
   fill: none;
   stroke-width: 2.8;
   stroke-linecap: round;
