@@ -3,7 +3,7 @@
 :root {
   /* Colours */
   --light: #f2f2f2;
-  --dark: #333333;
+  --dark: rgb(51, 51, 51);
   --accent: #7fbf7f;
   --highlight: #a7673b;
 }
@@ -89,7 +89,7 @@ h6 {
   text-align: center;
   margin: 0 auto;
   max-width: 40em;
-  background: rgba(27, 27, 27, 0.8);
+  background: rgba(51, 51, 51, .9);
   border-radius: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
