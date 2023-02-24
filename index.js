@@ -9,6 +9,7 @@ const resultEl = document.querySelector(".result");
 const circle = document.querySelector(".circle");
 const percentage = document.querySelector(".percentage");
 const resultText = document.createElement("p");
+const clearBtn = document.querySelector("#btn-clear");
 
 // Get user's input
 function getData(form) {
@@ -28,7 +29,10 @@ function updateCircle(percent) {
   if (circle.getAttribute("stroke-dasharray")) {
     circle.setAttribute("stroke-dasharray", `${percent}, 100`);
   } else {
-    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.setAttribute(
+      "style",
+      `stroke-dasharray: ${circumference} ${circumference}`
+    );
     circle.setAttribute("stroke-dasharray", `${percent}, 100`);
   }
 
@@ -39,7 +43,6 @@ function updateCircle(percent) {
 function calculateSurvival(score) {
   // Convert score to percentage
   const percentScore = Math.round((100 * score) / maxScore);
-  // (100 * score) / maxScore;
 
   // Fill the element displaying result
   resultText.textContent = `You scored ${score} points! `;
@@ -70,22 +73,27 @@ function calculateSurvival(score) {
 }
 
 // Reset everything
-function clearData() {
+function reset() {
   if (userScore) {
     resultEl.style.display = "none";
-    resultEl.removeChild(resultText);
+    if (resultEl.contains(resultText)) {
+      resultEl.removeChild(resultText);
+    }
     userScore = 0;
     updateCircle(0);
   }
 }
 
-// Display result
-form.addEventListener("submit", function (e) {
+function handleFormSubmit(e) {
   e.preventDefault();
-  // Clear previous result
-  clearData();
-  // Get data from form
+  reset();
   getData(e.target);
-  // Calculate result
   calculateSurvival(userScore);
-});
+}
+
+function handleClearButtonClick() {
+  reset();
+}
+
+form.addEventListener("submit", handleFormSubmit);
+clearBtn.addEventListener("click", handleClearButtonClick);
