@@ -6,9 +6,10 @@ let userScore = 0;
 // Get elements from document
 const form = document.getElementById("form");
 const resultEl = document.querySelector(".result");
+const resultDetailEl = resultEl.querySelector(".result-details");
+const resultText = document.createElement("p");
 const circle = document.querySelector(".circle");
 const percentage = document.querySelector(".percentage");
-const resultText = document.createElement("p");
 const clearBtn = document.querySelector("#btn-clear");
 
 // Get user's input
@@ -49,9 +50,9 @@ function calculateSurvival(score) {
 
   // Render additional text based on the score
   if (percentScore < 20) {
-    resultText.textContent += `YWell, at least you'll go out in a blaze of glory... or maybe just a blaze. Sorry, friend. Remember, it's not the size of the gun, it's how you use it.`;
+    resultText.textContent += `Well, at least you'll go out in a blaze of glory... or maybe just a blaze. Sorry, friend. Remember, it's not the size of the gun, it's how you use it.`;
   } else if (percentScore < 40) {
-    resultText.textContent += `You're not quite ready to be a hero in the zombie apocalypse yet. Don't worry, even the most skilled survivors had to start somewhere. In the words of Joel from The Last of Us, 'endure and survive.'`;
+    resultText.textContent += `You're not quite ready to be a hero in the zombie apocalypse yet. Don't worry, even the most skilled survivors had to start somewhere. In the words of Joel, 'endure and survive.'`;
   } else if (percentScore < 60) {
     resultText.textContent += `Not bad! You're like a zombie's worst nightmare... as long as that zombie isn't too hungry. Remember, aim for the head, always have an exit strategy, and listen for the sound of clickers.`;
   } else if (percentScore < 80) {
@@ -63,7 +64,7 @@ function calculateSurvival(score) {
   }
 
   // Append the result to the appropriate element
-  resultEl.appendChild(resultText);
+  resultDetailEl.appendChild(resultText);
 
   // Render the circle
   updateCircle(percentScore);
@@ -76,18 +77,22 @@ function calculateSurvival(score) {
 function reset() {
   if (userScore) {
     resultEl.style.display = "none";
-    if (resultEl.contains(resultText)) {
-      resultEl.removeChild(resultText);
+    if (resultDetailEl.contains(resultText)) {
+      resultDetailEl.removeChild(resultText);
     }
     userScore = 0;
     updateCircle(0);
   }
 }
 
+// Form controls
 function handleFormSubmit(e) {
   e.preventDefault();
+  // Clear previous result
   reset();
+  // Get data from form
   getData(e.target);
+  // Calculate the result
   calculateSurvival(userScore);
 }
 

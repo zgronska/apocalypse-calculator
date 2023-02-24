@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&family=Karla:wght@400;600;700&display=swap');
 
 :root {
-  font-size: 16px;
-
   /* Colours */
   --light: #f7f9f9;
   --light-accent: #898a8d;
@@ -27,9 +25,6 @@
 body {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-}
-
-p {
   line-height: 1.5;
 }
 
@@ -72,7 +67,7 @@ h6 {
 body {
   background: center / cover no-repeat url(./bg.jpg);
   /* Photo by Cédric Dhaenens on Unsplash */
-  font: 1rem/1.6 "Inconsolata", sans-serif;
+  font-family: "Inconsolata", sans-serif;
   color: var(--light);
   padding: 2rem;
 }
@@ -85,16 +80,13 @@ h5,
 h6 {
   font-family: 'Karla', sans-serif;
   color: var(--highlight);
+  line-height: 1;
+  margin-bottom: 0.8em
 }
-
-/*=====  End of Basic styling  ======*/
-
-
-/*----------  Header  ----------*/
 
 .page-header,
 .page-container {
-  padding: 1em 2em;
+  padding: 2em;
   text-align: center;
   margin: 0 auto;
   max-width: 40em;
@@ -103,6 +95,17 @@ h6 {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
 }
+
+p,
+.range-label {
+  margin-block: 0.5em;
+}
+
+.page-container {
+  margin-top: 2rem;
+}
+
+/*=====  End of Basic styling  ======*/
 
 
 /*----------  Form  ----------*/
@@ -129,14 +132,18 @@ select {
   padding: 0.625em;
 }
 
-
+.location-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 input[type="range"] {
   appearance: none;
   -webkit-appearance: none;
   width: 10em;
   height: 1.25em;
-  margin: 0.625em 3.125em;
+  margin: 0.6em;
   background: linear-gradient(to right, var(--highlight) 0%, var(--highlight) 100%);
   background-size: 9.375em 0.625em;
   background-position: center;
@@ -196,25 +203,36 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
+/*----------  Results  ----------*/
+
 .result {
   display: none;
 }
 
+.result-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+.result-details p {
+  flex: 1;
+}
+
 .circular-chart {
   display: block;
-  margin: 10px auto;
+  margin: 0.6em auto;
   max-width: 80%;
-  max-height: 250px;
-
+  max-height: 15.6rem;
 }
 
 .circular-chart text.percentage {
-
   font-size: 0.5em;
   text-anchor: middle;
   fill: var(--light);
 }
-
 
 .circle {
   stroke: var(--light-accent);
